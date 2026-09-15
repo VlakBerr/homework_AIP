@@ -17,3 +17,37 @@ int main() {
 	}
 	return 0;
 }
+
+-----------------------------
+
+
+#include <iostream>
+#include <string>
+
+struct Student {
+	std::string name;
+	int age;
+	double average;
+
+	int main() {
+		std::cout << "Name: " << name << ". Age: " << age << ". Average mark: " << average << ".\n";
+		return 0;
+	}
+};
+
+int main() {
+	Student students[3];
+
+	students[0] = { "Alex", 18, 5.0 };
+	students[1] = { "Maria", 20, 5.1 };
+	students[2] = { "Vacia", 10, 2 };
+
+	students[0].main();
+	students[1].main();
+	students[2].main();
+
+
+
+
+	return 0;
+}

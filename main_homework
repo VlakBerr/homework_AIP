@@ -54,3 +54,122 @@ int main() {
 
 {
 {
+
+
+
+
+////#include <iostream>
+////#include <string>
+////
+////struct Student {
+////	std::string name;
+////	int age;
+////	double average;
+////
+////	int main() {
+////		std::cout << "Name: " << name << ". Age: " << age << ". Average mark: " << average << ".\n";
+////		return 0;
+////	}
+////};
+////
+////int main() {
+////	Student students[3];
+////
+////	students[0] = { "Alex", 18, 5.0 };
+////	students[1] = { "Maria", 20, 5.1 };
+////	students[2] = { "Vacia", 10, 2 };
+////
+////	students[0].main();
+////	students[1].main();
+////	students[2].main();
+////
+////
+////
+////
+////	return 0;
+////}
+//
+//
+//
+//
+//
+//
+//
+//#include <iostream>
+//#include <string>
+//
+//enum Options {
+//	open,
+//	close,
+//	in_proccess
+//};
+//
+//struct File {
+//	std::string name;
+//	int weight;
+//	Options option;
+//
+//	int main() {
+//		std::cout << name << " " << weight << " " << option << std::endl;
+//
+//		return 0;
+//	}
+//};
+//
+//
+//int main() {
+//	File f;
+//	int num;
+//	std::cout << "Enter file name: ";
+//	std::cin >> f.name;
+//
+//	std::cout << "Enter file weight: ";
+//	std::cin >> f.weight;
+//
+//	std::cout << "Enter file option: ";
+//	std::cin >> num;
+//
+//	switch (num) {
+//	case 0:
+//		f.option = Options::open;
+//	case 1:
+//		f.option = Options::close;
+//	case 2:
+//		f.option = Options::in_proccess;
+//	}
+//
+//
+//	f.main();
+//
+//	return 0;
+//
+//}
+
+
+
+
+#include <iostream>
+
+int del(int a, int b) {
+	if (b == 0) {
+		throw std::logic_error("del 0");
+	}
+	std::cout << a / b;
+	return 0;
+}
+
+
+int main() {
+	int a, b;
+	std::cin >> a;
+	std::cin >> b;
+
+	try {
+		del(a, b);
+	}
+	catch (...) {
+		std::cerr << ("logic error");
+		return 1;
+		}
+	return 0;
+}

@@ -236,4 +236,71 @@ int main() {
 		return 1;
 		}
 	return 0;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//дз от 23.09.26
+
+#include <iostream>
+#include <iomanip>
+
+double analyze(double n) {
+	if (std::cin.fail()) {
+		throw std::invalid_argument("Invalid number");
+	}
+	return n;
+}
+
+int analyze_int(int n) {
+	if (std::cin.fail()) {
+		throw std::invalid_argument("Invalid number");
+	}
+	return n;
+}
+
+int main() {
+	try {
+		double n;
+		std::cout << "Enter cout of tempreture values: ";
+		std::cin >> n;
+		n = analyze_int(n);
+
+		double* arr = new double[n];
+		double celcium;
+		for (int i = 0; i < n; i++) {
+			std::cout << "Enter celcium gradus: ";
+			std::cin >> celcium;
+			celcium = analyze(celcium);
+			arr[i] = celcium;
+		}
+		std::cout << std::endl << std::endl;
+		std::cout << "You enter tempreture: " << std::endl;
+		std::cout << std::left << std::setw(15) << "Celcium" << "Faringeit" << std::endl;
+
+		std::cout << std::fixed;
+
+		for (int i = 0; i < n; i++) {
+			double cel, far;
+			cel = arr[i];
+			far = arr[i] * 9 / 5 + 32;
+			std::cout << std::left << std::setw(15) << std::setprecision(1) << cel << far << std::endl;
+		}
+	}
+	catch (const std::invalid_argument& e) {
+		std::cerr << "Error of invalid argument: " << e.what();
+		return 1;
+	}
+
+	return 0;
 }

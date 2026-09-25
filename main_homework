@@ -350,3 +350,79 @@ int main() {
 
 	return 0;
 }
+
+
+
+
+
+//Задание по АИП (практика)
+#include <iostream>
+
+int* create_matrix(int n, int m)
+{
+  int* matrix = new int[n * m];
+  return matrix;
+}
+
+void delete_matrix(int* matrix)
+{
+  delete[] matrix;
+}
+
+
+void print_matrix(int* matrix, int n, int m)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m;j++)
+    {
+      std::cout << matrix[i * n + j] << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
+int sm_abs(int* matrix, int n, int m)
+{
+  int sm = 0;
+  for (int i = 0; i < n; i++)
+  {
+    sm += abs(matrix[i * n + i]) + abs(matrix[i * n + (m - 1) - i]);
+  }
+
+  return sm;
+}
+
+void fill_matrix(int* matrix, int n, int m)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m;j++)
+    {
+      int elem;
+      std::cout << "Enter matrix element: ";
+      std::cin >> elem;
+      matrix[i * n + j] = elem;
+    }
+  }
+}
+
+
+int main()
+{
+  int n, m;
+  std::cout << "Enter count of rows in matrix: ";
+  std::cin >> n;
+  std::cout << "Enter count of colomns in matrix: ";
+  std::cin >> m;
+
+  int* my_matrix = create_matrix(n, m);
+  fill_matrix(my_matrix, n, m);
+  print_matrix(my_matrix, n, m);
+  int res;
+  res = sm_abs(my_matrix, n, m);
+  std::cout << "absolute matrix`s sum: " << res << "\n";
+  delete_matrix(my_matrix);
+
+  return 0;
+}

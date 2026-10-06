@@ -107,3 +107,51 @@ int main()
 
   return 0;
 }
+
+
+
+//Задание по АИП (практика) последнее
+#include <iostream>
+
+void prod(int &n1, int &n2, int &pr)
+{
+  pr = n1 * n2;
+}
+
+void sum(int n1, int n2, int &su)
+{
+  su = n1 + n2;
+}
+
+void reverse_string(std::string &s)
+{
+  for (int i = 0; i < s.length() / 2; i++)
+  {
+    std::swap(s[i], s[s.length() - 1 - i]);
+  }
+}
+
+int main()
+{
+  std::string s;
+  int n1, n2;
+  int su = 0;
+  int pr = 1;
+  std::cout << "Enter n1: ";
+  std::cin >> n1;
+  std::cout << "Enter n2: ";
+  std::cin >> n2;
+  std::cout << "Enter string: ";
+  std::cin >> s;
+
+  sum(n1, n2, su);
+  prod(n1, n2, pr);
+  reverse_string(s);
+
+  std::cout << "Prod: " << pr << "\n";
+  std::cout << "Sum: " << su << "\n";
+  std::cout << "Reverse string: " << s << "\n";
+
+
+  return 0;
+}

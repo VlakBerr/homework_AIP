@@ -1,0 +1,109 @@
+//Задание по АИП (практика) сложение и умножение матриц
+
+#include <iostream>
+
+int** create_matrix(int n)
+{
+  int** matrix = new int* [n] {};
+  for (int i = 0; i < n; i++)
+  {
+    matrix[i] = new int[n];
+  }
+
+  return matrix;
+}
+
+void delete_matrix(int** matrix, int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+    delete[] matrix[i];
+  }
+
+  delete matrix;
+}
+
+void fill_matrix(int** matrix, int n)
+{
+  std::cout << "Now you will fill your matrix!" << "\n";
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      std::cout << "Enter matrix element: ";
+      std::cin >> matrix[i][j];
+    }
+  }
+}
+
+void print_matrix(int** matrix, int n)
+{
+  std::cout << "Your matrix: " << "\n";
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      std::cout << matrix[i][j] << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
+void prod_matrix(int** matrix1, int** matrix2, int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      int num = 0;
+      for (int g = 0; g < n; g++)
+      {
+        num += matrix1[i][g] * matrix2[g][j];
+      }
+      std::cout << num << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
+void sum_matrix(int** matrix1, int** matrix2, int n)
+{
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < n; j++)
+    {
+      std::cout << matrix1[i][j] + matrix2[i][j] << " ";
+    }
+    std::cout << "\n";
+  }
+}
+
+int main()
+{
+  int n = 0;
+  std::cout << "Enter count rows and cols in your matrix: ";
+  std::cin >> n;
+  int** matrix1 = create_matrix(n);
+  int** matrix2 = create_matrix(n);
+
+  fill_matrix(matrix1, n);
+  print_matrix(matrix1, n);
+
+  std::cout << "\n" << "\n";
+
+  fill_matrix(matrix2, n);
+  print_matrix(matrix2, n);
+
+  std::cout << "\n" << "\n";
+
+  prod_matrix(matrix1, matrix2, n);
+
+  std::cout << "\n" << "\n";
+
+  sum_matrix(matrix1, matrix2, n);
+
+  delete_matrix(matrix1, n);
+  delete_matrix(matrix2, n);
+
+  return 0;
+}
